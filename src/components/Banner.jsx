@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReactTyped } from 'react-typed';
 import Information from './Information';
+import Features from './Features';
 
 
 const Banner = () => {
@@ -28,6 +29,7 @@ const Banner = () => {
 
             </div>
             <Information />
+            <Features />
         </div>
     )
 }
