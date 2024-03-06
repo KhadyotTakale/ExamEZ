@@ -1,29 +1,39 @@
 import React from 'react';
-import Image from '../assets/signup.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-    return (
-        <div className='flex items-center justify-center h-screen'>
-            <div className='border-2 border-gray-300 p-4 rounded-md shadow-lg max-w-md mx-auto'>
-                <div className='flex justify-center'>
-                    <h1 className='text-2xl'>Sign up as a student</h1>
-                </div>
-                <div className='flex justify-center'>
-                    <img className='w-[800px] h-[400px]' src={Image} alt="" />
-                </div>
-                <div>
-                    <form className='space-y-4'>
-                        <input className='w-full p-2 border-2 border-gray-300 rounded-md' type='text' placeholder='Full Name' required />
-                        <input className='w-full p-2 border-2 border-gray-300 rounded-md' type='email' placeholder='Email' required />
-                        <input className='w-full p-2 border-2 border-gray-300 rounded-md' type='password' placeholder='Password' required />
-                        <input className='w-full p-2 border-2 border-gray-300 rounded-md' type='confirmpassword' placeholder='Confirm Password' required />
+    const navigate = useNavigate();
 
-                        <button className='w-full p-2 bg-green-400 text-white rounded-md' type='submit'>Sign Up</button>
-                    </form>
+    function goToInstituteSignup() {
+        navigate('/institutesignup');
+    }
+
+    function goToTutorSignup() {
+        navigate('/tutorsignup');
+    }
+
+    function goToStudentSignup() {
+        navigate('/studentsignup');
+    }
+
+    return (
+        <div className="h-screen flex justify-center items-center bg-gray-100">
+            <div className="max-w-md w-full p-8 bg-white rounded shadow-md">
+                <h2 className="text-2xl font-semibold mb-4 flex justify-center bg-red-300">Signup</h2>
+                <div className="flex justify-center space-x-4">
+                    <button onClick={goToInstituteSignup} className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                        Institute Signup
+                    </button>
+                    <button onClick={goToTutorSignup} className="py-2 px-4 bg-yellow-500 text-white rounded hover:bg-yellow-600 focus:outline-none focus:bg-yellow-600">
+                        Tutor Signup
+                    </button>
+                    <button onClick={goToStudentSignup} className="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600 focus:outline-none focus:bg-green-600">
+                        Student Signup
+                    </button>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Signup;

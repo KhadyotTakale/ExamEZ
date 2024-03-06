@@ -19,7 +19,7 @@ const Header = () => {
                 }
                 <ul className='hidden md:flex gap-10 text-black'>
                     <Link to="/" className='hover:text-red-500' >Home</Link>
-                    <Link to="/about" className='hover:text-red-500'>About</Link>
+
                     <Link to="/login" className='hover:text-red-500'>Login</Link>
                     <Link to="/signup" className='hover:text-red-500'>SignUp</Link>
                     <Link to="/contact" className='hover:text-red-500'>Contact</Link>
@@ -29,7 +29,6 @@ const Header = () => {
                 <ul className={`duration-300 md:hidden w-full h-screen text-white fixed bg-black top-[92px] flex flex-col items-start
                     ${toggle ? 'left-[0]' : 'left-[-100%]'} `}>
                     <Link to="/" className='p-5 block w-full text-left'>Home</Link>
-                    <Link to="/about" className='p-5 block w-full text-left'>About</Link>
                     <Link to="/login" className='p-5 block w-full text-left'>Login</Link>
                     <Link to="/signup" className='p-5 block w-full text-left'>SignUp</Link>
                     <Link to="/contact" className='p-5 block w-full text-left'>Contact</Link>

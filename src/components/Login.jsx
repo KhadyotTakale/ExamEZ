@@ -1,27 +1,38 @@
 import React from 'react';
-import Image from '../assets/login.svg';
+import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const Login = () => {
+
+    const navigate = useNavigate();
+
+    function Tutslogin() {
+        navigate('/tutorlogin');
+    }
+    function StudentLogin() {
+        navigate('/studentlogin');
+    }
+    function InstLogin() {
+        navigate('/institutelogin');
+    }
+
     return (
-        <div className='flex items-center justify-center h-screen'>
-            <div className='border-2 border-gray-300 p-4 rounded-md shadow-lg max-w-md mx-auto'>
-                <div className='flex justify-center'>
-                    <h1 className='text-2xl'>Login as a student or tutor</h1>
-                </div>
-                <div className='flex justify-center'>
-                    <img className='w-[800px] h-[400px]' src={Image} alt="" />
-                </div>
-                <div>
-                    <form className='space-y-4'>
-                        <input className='w-full p-2 border-2 border-gray-300 rounded-md' type='email' placeholder='Email' required />
-                        <input className='w-full p-2 border-2 border-gray-300 rounded-md' type='password' placeholder='Password' required />
-                        <button className='w-full p-2 bg-purple-500 text-white rounded-md' type='submit'>Login as a Student</button>
-                        <button className='w-full p-2 bg-purple-500 text-white rounded-md' type='submit'>Login as a Tutor</button>
-                    </form>
+        <div className="h-screen flex justify-center items-center bg-gray-100">
+            <div className="max-w-md w-full p-8 bg-white rounded shadow-md">
+                <h2 className="text-2xl font-semibold mb-4 flex justify-center bg-red-300">Login</h2>
+                <div className="flex justify-center space-x-4">
+                    <button onClick={InstLogin} className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                        Institute Login
+                    </button>
+                    <button onClick={StudentLogin} className="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600 focus:outline-none focus:bg-green-600">
+                        Student Login
+                    </button>
+                    <button onClick={Tutslogin} className="py-2 px-4 bg-yellow-500 text-white rounded hover:bg-yellow-600 focus:outline-none focus:bg-yellow-600">
+                        Tutor Login
+                    </button>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default LoginPage;
+export default Login;
