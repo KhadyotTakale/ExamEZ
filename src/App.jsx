@@ -12,6 +12,8 @@ import StudentLogin from './components/StudentLogin';
 import InstituteLogin from './components/InstituteLogin';
 import TutorSignup from './components/TutorSignup';
 import StudentSignup from './components/StudentSignup';
+import InstituteSignup from './components/InstituteSignup';
+import InstituteManagement from './components/InstituteManagement';
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <Route path="/institutelogin" element={<InstituteLogin />} />
         <Route path="/tutorsignup" element={<TutorSignup />} />
         <Route path="/studentsignup" element={<StudentSignup />} />
+        <Route path="/institutesignup" element={<InstituteSignup />} />
+        <Route path="/institutemanagement" element={<InstituteManagement />} />
 
 
       </Routes>

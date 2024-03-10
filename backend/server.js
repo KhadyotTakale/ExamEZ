@@ -48,10 +48,8 @@ app.post('/tutor', (req, res) => {
             }
 
             if (result.length === 1) {
-                // Credentials match, return success response
                 return res.status(200).json({ success: true, tutor: result[0] });
             } else {
-                // Invalid credentials, return error response
                 return res.status(401).json({ success: false, error: 'Invalid credentials' });
             }
         });
@@ -131,10 +129,54 @@ app.post('/students', (req, res) => {
     }
 });
 
+// Route for institute login
+
+app.get('/institutes', (req, res) => {
+    const sql = "SELECT * FROM Institute";
+    db.query(sql, (err, data) => {
+        if (err) {
+            return res.status(500).json(err);
+        }
+        else {
+            return res.json(data);
+        }
+    })
+})
+
+
+// Route for institute signup/login
+
+app.post('/institutes', (req, res) => {
+    const { name, email, password } = req.body;
+
+    if (name) {
+        const sql = "INSERT INTO Institute ( name, email, password) VALUES (?, ?, ?)";
+        db.query(sql, [name, email, password], (err, result) => {
+            if (err) return res.status(500).json(err);
+            return res.status(201).send('student added');
+        });
+    } else {
+        const sql = "SELECT * FROM Institute WHERE email = ? AND password = ?";
+        db.query(sql, [email, password], (err, result) => {
+            if (err) {
+                return res.status(500).json({ success: false, error: err });
+            }
+
+            if (result.length === 1) {
+                return res.status(200).json({ success: true, tutor: result[0] });
+            } else {
+                return res.status(401).json({ success: false, error: 'Invalid credentials' });
+            }
+        });
+    }
+});
 
 
 
-// Start the Express server
+// Route for managing the tutors
+
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
